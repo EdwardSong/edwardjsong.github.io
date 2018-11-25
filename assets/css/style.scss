@@ -1,0 +1,34 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+body {
+  color: #bbbbbb;
+}
+
+section #title h1 {
+  color:#5DA9CC;
+}
+section #title p {
+  color: #ED9669;
+}
+section #title {
+  margin:0px;
+  padding:0px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #eeab00;
+}
+
+#header nav { background: transparent}
+
+a { color: #5DA9CC }
+a:hover { color: #5DFFFF; text-decoration: underline }
+
+ul{
+  -webkit-padding-start: 20px;
+  list-style-image: none;
+}

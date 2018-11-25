@@ -1,13 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-16T23:36:28-05:00</updated><id>http://localhost:4000/</id><title type="html">Changing</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2018/02/16/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-02-16T22:27:56-05:00</published><updated>2018-02-16T22:27:56-05:00</updated><id>http://localhost:4000/jekyll/update/2018/02/16/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/02/16/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-25T00:56:26-05:00</updated><id>http://localhost:4000/</id><title type="html">Engineering blog</title><subtitle>Building Secure, Reliable, Scalable Stuff&lt;br/&gt;</subtitle><entry><title type="html">My LSTM Network Notes - Training LTSMs</title><link href="http://localhost:4000/machine-learning/long-short-term-memory-networks/training" rel="alternate" type="text/html" title="My LSTM Network Notes - Training LTSMs" /><published>2018-03-01T00:00:00-05:00</published><updated>2018-03-01T00:00:00-05:00</updated><id>http://localhost:4000/machine-learning/long-short-term-memory-networks/training-ltsms</id><content type="html" xml:base="http://localhost:4000/machine-learning/long-short-term-memory-networks/training">&lt;h3 id=&quot;terminology&quot;&gt;Terminology&lt;/h3&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Backpropagation Training Algorithm&lt;/strong&gt; - the mathematical method used to calculate derivatives and an application of the derivative chain rule and the training algorithm for updating network weights to minimize error.  The goal of the backpropagation training algorithm is to modify the weights of a neural network in order to minimize the error of the network outputs compared to some expected output in response to corresponding inputs.
+        &lt;ol&gt;
+            &lt;li&gt;Present a training input pattern and propagate it through the network to get an output.&lt;/li&gt;
+            &lt;li&gt;Compare the predicted outputs to the expected outputs and calculate the error.&lt;/li&gt;
+            &lt;li&gt;Calculate the derivatives of the error with respect to the network weights.&lt;/li&gt;
+            &lt;li&gt;Adjust the weights to minimize the error.&lt;/li&gt;
+            &lt;li&gt;Repeat.&lt;/li&gt; 
+       &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Backpropagation Through Time&lt;/strong&gt; - or BPTT, is the application of the Backpropagation training algorithm to Recurrent Neural Networks. In the simplest case, a recurrent neural network is shown one input each time step and predicts one output.
+        &lt;ol&gt;
+            &lt;li&gt;Present a sequence of time steps of input and output pairs to the network.&lt;/li&gt;
+            &lt;li&gt;Unroll the network then calculate and accumulate errors across each time step. 3. Roll-up the network and update weights.&lt;/li&gt;
+            &lt;li&gt;Repeat.&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt; 
+&lt;/ul&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h3 id=&quot;types&quot;&gt;Types&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;No Notes&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;observations&quot;&gt;Observations&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;One of the main problems of BPTT is the high cost of a single parameter update, which makes it impossible to use a large number of iterations.&lt;/li&gt;
+    &lt;li&gt;One way to minimize the exploding and vanishing gradient issue is to limit how many time steps before an update to the weights is performed.&lt;/li&gt;  
+&lt;/ul&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;http://ArXiv.org&lt;/li&gt;
+    &lt;li&gt;https://scholar.google.com/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;./&quot;&gt;back&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Work" /><category term="AI" /><category term="ML" /><category term="Artificial Intelligence" /><category term="Machine Learning" /><summary type="html">Terminology</summary></entry><entry><title type="html">My LSTM Network Notes - Intro to LTSMs</title><link href="http://localhost:4000/machine-learning/long-short-term-memory-networks/intro" rel="alternate" type="text/html" title="My LSTM Network Notes - Intro to LTSMs" /><published>2018-02-27T00:00:00-05:00</published><updated>2018-02-27T00:00:00-05:00</updated><id>http://localhost:4000/machine-learning/long-short-term-memory-networks/lstm</id><content type="html" xml:base="http://localhost:4000/machine-learning/long-short-term-memory-networks/intro">&lt;h2 id=&quot;my-lstm-network-notes---intro-to-ltsms&quot;&gt;My LSTM Network Notes - Intro to LTSMs&lt;/h2&gt;
+&lt;p&gt;A deep learning technique designed specifically for sequence prediction problems.  A type of Recurrent Neural Network (RNN) is an RNN architecture specifically designed to address the vanishing gradient problem.&lt;/p&gt;
+&lt;h3 id=&quot;terminology&quot;&gt;Terminology&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Sequence prediction attempts to predict elements of a sequence on the basis of the preceding elements&lt;/li&gt;
+    &lt;li&gt;Multilayer Perceptrons (MLP's) - classical neural networks, which can be applied to sequence prediction problems.  They can approximate a mapping function from input variables to output variables over time, which lends them to forecasting, especially when it comes to the Vanishing Gradient Problem.&lt;/li&gt;
+    &lt;li&gt;Recurrent Neural Network - special type of Neural Network designed for sequencing problems.  Given a standard feedforward MLP network, an RNN can be thought of as the addition of loops to the architecture.  The recurrent connections add state or memory to the network and allow it to learn and harness the ordered nature of observations within input sequences.&lt;/li&gt;
+    &lt;li&gt;Vanishing Gradient Problem - training experiments show how difficult this was where the weight update procedure resulted in weight changes that quickly became so small as to have no effect (vanishing gradients) or so large as to result in very large changes or even overflow (exploding gradients)&lt;/li&gt;    
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;types&quot;&gt;Types&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Vanilla LSTM&lt;/strong&gt; - memory cells of a single LSTM layer are used in a simple network structure.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Stacked LSTM&lt;/strong&gt; - LSTM layers are stacked one on top of another into deep networks.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;CNN LSTM&lt;/strong&gt; - A convolutional neural network is used to learn features in spatial input like images and the LSTM can be used to support a sequence of images as input or generate a sequence in response to an image.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Encoder-Decoder LSTM&lt;/strong&gt; - One LSTM network encodes input sequences and a separate LSTM network decodes the encoding into an output sequence.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Bidirectional LSTM&lt;/strong&gt; - Input sequences are presented and learned both forward and backward.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Generative LSTM&lt;/strong&gt; - LSTMs learn the structure relationship in input sequences so well that they can generate new plausible sequences.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;LTSM &amp;gt; MLPs&lt;/li&gt;
+    &lt;li&gt;Training LTSM's &amp;gt; Training RNN&lt;/li&gt;
+    &lt;li&gt;Context info in LTSM's &amp;gt; Context info in RNN&lt;/li&gt;
+    &lt;li&gt;In time series forecasting, often the information relevant for making a forecast is within a small window of past observations. Often an MLP with a window or a linear model may be a less complex and more suitable model.&lt;/li&gt;
+    &lt;li&gt;An important limitation of LSTMs is the memory. Or more accurately, how memory can be abused. It is possible to force an LSTM model to remember a single observation over a very long number of input time steps. This is a poor use of LSTMs and requiring an LSTM model to remember multiple observations will fail.&lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;http://ArXiv.org&lt;/li&gt;
+    &lt;li&gt;https://scholar.google.com/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;./&quot;&gt;back&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="Work" /><category term="AI" /><category term="ML" /><category term="Artificial Intelligence" /><category term="Machine Learning" /><summary type="html">My LSTM Network Notes - Intro to LTSMs A deep learning technique designed specifically for sequence prediction problems. A type of Recurrent Neural Network (RNN) is an RNN architecture specifically designed to address the vanishing gradient problem. Terminology</summary></entry><entry><title type="html">My OpenSAML SSO Implementation Notes</title><link href="http://localhost:4000/saml" rel="alternate" type="text/html" title="My OpenSAML SSO Implementation Notes" /><published>2018-02-18T00:00:00-05:00</published><updated>2018-02-18T00:00:00-05:00</updated><id>http://localhost:4000/opensaml</id><content type="html" xml:base="http://localhost:4000/saml">&lt;h1 id=&quot;single-sign-on-sso-with-opensaml&quot;&gt;Single Sign On (SSO) with OpenSAML&lt;/h1&gt;
+
+&lt;h2 id=&quot;terminology&quot;&gt;Terminology&lt;/h2&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Federated login - in which a user's single identity, is trusted across multiple IT systems or even organizations.&lt;/li&gt;
+    &lt;li&gt;Identity Provider -  Identity Provider provides Web Single Sign-On capabilities, authenticating users and supplying data to services&lt;/li&gt;
+    &lt;li&gt;Service Provider - in this context, integrates federated login from an identity provider as the point of authentication.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;authentication-flow&quot;&gt;Authentication Flow&lt;/h2&gt;
+
+&lt;p&gt;There are so many permutations available in SAML, but the gist of it is below.&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Service Provider intercepts access to a protected resource or application entry point.&lt;/li&gt;
+    &lt;li&gt;Service Provider discovers the user’s choice of Identity Provider.&lt;/li&gt;
+    &lt;li&gt;Service Provider issues a SAML authentication request to the selected Identity Provider.&lt;/li&gt;
+    &lt;li&gt;Identity Provider authenticates the user against the identity provider organization’s existing authentication store(s);&lt;/li&gt;
+    &lt;li&gt;Service Provider processes the SAML authentication responses and extracts rich user information.&lt;/li&gt;
+    &lt;li&gt;Service Provider applies local policies and gather additional data. (if needed)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;./&quot;&gt;back&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="SSO, SAML" /><category term="OpenSAML" /><category term="SAML" /><category term="SSO" /><summary type="html">Single Sign On (SSO) with OpenSAML</summary></entry></feed>

@@ -1,60 +1,123 @@
 <!doctype html>
 <html lang="en-US">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-<!-- Begin Jekyll SEO tag v2.3.0 -->
-<title>Changing | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
-<meta property="og:title" content="Changing" />
+    <!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Engineering blog | Building Secure, Reliable, Scalable Stuff</title>
+<meta property="og:title" content="Engineering blog" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta name="description" content="Building Secure, Reliable, Scalable Stuff" />
+<meta property="og:description" content="Building Secure, Reliable, Scalable Stuff" />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Changing" />
+<meta property="og:site_name" content="Engineering blog" />
 <script type="application/ld+json">
-{"name":"Changing","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","author":null,"@type":"WebSite","url":"http://localhost:4000/","publisher":null,"image":null,"headline":"Changing","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+{"name":"Engineering blog","description":"Building Secure, Reliable, Scalable Stuff","author":null,"@type":"WebSite","url":"http://localhost:4000/","publisher":null,"image":null,"headline":"Engineering blog","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=HEAD">
+    <link rel="stylesheet" href="/assets/css/style.css?v=e1c62429cafd883d6fcc63bf9e8c7fa6027c9e4e">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="/assets/js/respond.js"></script>
     <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!--[if lt IE 8]>
     <link rel="stylesheet" href="/assets/css/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  </head>
-  <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="http://github.com/edwardjsong/edwardjsong.github.io">View On GitHub</a></li>
-          
-        </nav>
-      </div><!-- end header -->
+</head>
+<body>
+<div id="header">
+    <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/ml/">Machine Learning</a></li>
+        <li><a href="/sso/">SSO - SAMLv2</a></li>
+        
+    </nav>
+</div><!-- end header -->
+<div class="wrapper">
 
-    <div class="wrapper">
-
-      <section>
+    <section>
         <div id="title">
-          <h1>Changing</h1>
-          <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="http://github.com/edwardjsong">edwardjsong</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+            <h1>Engineering blog</h1>
+            <p>Building Secure, Reliable, Scalable Stuff<br/></p>
         </div>
+        <hr>
 
         
+<h1><a href="/machine-learning/long-short-term-memory-networks/training">My LSTM Network Notes - Training LTSMs</a></h1>
+<p>(March 01, 2018)</p>
+<div><h3 id="terminology">Terminology</h3>
 
+<ul>
+    <li><strong>Backpropagation Training Algorithm</strong> - the mathematical method used to calculate derivatives and an application of the derivative chain rule and the training algorithm for updating network weights to minimize error.  The goal of the backpropagation training algorithm is to modify the weights of a neural network in order to minimize the error of the network outputs compared to some expected output in response to corresponding inputs.
+        <ol>
+            <li>Present a training input pattern and propagate it through the network to get an output.</li>
+            <li>Compare the predicted outputs to the expected outputs and calculate the error.</li>
+            <li>Calculate the derivatives of the error with respect to the network weights.</li>
+            <li>Adjust the weights to minimize the error.</li>
+            <li>Repeat.</li> 
+       </ol>
+    </li>
+    <li><strong>Backpropagation Through Time</strong> - or BPTT, is the application of the Backpropagation training algorithm to Recurrent Neural Networks. In the simplest case, a recurrent neural network is shown one input each time step and predicts one output.
+        <ol>
+            <li>Present a sequence of time steps of input and output pairs to the network.</li>
+            <li>Unroll the network then calculate and accumulate errors across each time step. 3. Roll-up the network and update weights.</li>
+            <li>Repeat.</li>
+        </ol>
+    </li> 
+</ul>
 
-      </section>
+<h3 id="types">Types</h3>
+<ul>
+  <li>No Notes</li>
+</ul>
 
-    </div>
+<h3 id="observations">Observations</h3>
+<ul>
+    <li>One of the main problems of BPTT is the high cost of a single parameter update, which makes it impossible to use a large number of iterations.</li>
+    <li>One way to minimize the exploding and vanishing gradient issue is to limit how many time steps before an update to the weights is performed.</li>  
+</ul>
 
+<h3 id="further-reading">Further Reading</h3>
+
+<ul>
+    <li>http://ArXiv.org</li>
+    <li>https://scholar.google.com/</li>
+</ul>
+
+<p><a href="./">back</a></p>
+</div>
+
+<h1>Posts</h1>
+<ul>
     
-  </body>
+    <li>
+        <a href="/machine-learning/long-short-term-memory-networks/intro">My LSTM Network Notes - Intro to LTSMs - (February 27, 2018)</a>
+        <br />
+        
+    </li>
+    
+    <li>
+        <a href="/saml">My OpenSAML SSO Implementation Notes - (February 18, 2018)</a>
+        <br />
+        
+    </li>
+    
+</ul>
+
+
+        <hr>
+        <span class="credits left">GitHub :     <a href="http://github.com/edwardjsong">edwardjsong</a></span>
+        
+
+    </section>
+
+</div>
+
+
+</body>
 </html>
